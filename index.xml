@@ -8,18 +8,18 @@
             <atom:link href="https://v-0-n.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Linux笔记</title>
-    <link>https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/</link>
+    <link>https://v-0-n.github.io/linux_notes/</link>
     <pubDate>Tue, 14 Feb 2023 23:32:11 &#43;0800</pubDate>
     <author>Von</author>
-    <guid>https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/</guid>
+    <guid>https://v-0-n.github.io/linux_notes/</guid>
     <description><![CDATA[基础 获取帮助方式 命令 &ndash;help 系统去红帽官网 软件去软件官网 百度&amp;谷歌 Linux目录结构 常用目录 意义或作用 etc/passwd 用户信息配置文件 usr/bin/passwd 修改用户口令的命]]></description>
 </item>
 <item>
     <title>First Post</title>
-    <link>https://v-0-n.github.io/excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/</link>
+    <link>https://v-0-n.github.io/first-post/</link>
     <pubDate>Tue, 14 Feb 2023 21:12:32 &#43;0800</pubDate>
     <author>Von</author>
-    <guid>https://v-0-n.github.io/excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/</guid>
+    <guid>https://v-0-n.github.io/first-post/</guid>
     <description><![CDATA[excel快捷键大全 一、关于处理工作表的快捷键总结 Shift+F11或Alt+Shift+F1 插入新工作表 Ctrl+PageDown 移动到工作簿中的下一张工作表 Ctrl+PageUp 移]]></description>
 </item>
 </channel>
