@@ -2,30 +2,32 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://example.com/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://v-0-n.github.io/first-post/</loc><lastmod>2023-02-14T21:12:32&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://v-0-n.github.io/posts/</loc><lastmod>2023-02-14T21:12:32&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://v-0-n.github.io/</loc><lastmod>2023-02-14T21:12:32&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://example.com/en/categories/"
+                        href="https://v-0-n.github.io/en/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="zh-cn"
-                    href="https://example.com/categories/"
+                    href="https://v-0-n.github.io/"
                     /></url><url>
-            <loc>https://example.com/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://v-0-n.github.io/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://example.com/en/tags/"
+                        href="https://v-0-n.github.io/en/categories/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="zh-cn"
-                    href="https://example.com/tags/"
+                    href="https://v-0-n.github.io/categories/"
                     /></url><url>
-            <loc>https://example.com/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://v-0-n.github.io/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
-                        href="https://example.com/en/"
+                        href="https://v-0-n.github.io/en/tags/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="zh-cn"
-                    href="https://example.com/"
+                    href="https://v-0-n.github.io/tags/"
                     /></url></urlset>

@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Von&#39;s notes</title>
-        <link>https://v-0-n.github.io/</link>
-        <description>用于 RSS, SEO, Open Graph 和 Twitter Cards</description>
+        <title>所有文章 - Von&#39;s notes</title>
+        <link>https://v-0-n.github.io/posts/</link>
+        <description>所有文章 | Von&#39;s notes</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fgq827673334@outlook.com (Von)</managingEditor>
-            <webMaster>fgq827673334@outlook.com (Von)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Feb 2023 21:12:32 &#43;0800</lastBuildDate>
-            <atom:link href="https://v-0-n.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>fgq827673334@outlook.com (Von)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Feb 2023 21:12:32 &#43;0800</lastBuildDate><atom:link href="https://v-0-n.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>First Post</title>
     <link>https://v-0-n.github.io/first-post/</link>
     <pubDate>Tue, 14 Feb 2023 21:12:32 &#43;0800</pubDate>
