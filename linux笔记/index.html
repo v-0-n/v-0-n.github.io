@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Linux笔记 - Von&#39;s notes</title><meta name="Description" content="用于 RSS, SEO, Open Graph 和 Twitter Cards"><meta property="og:title" content="Linux笔记" />
+<meta property="og:description" content="基础 获取帮助方式 命令 &ndash;help 系统去红帽官网 软件去软件官网 百度&amp;谷歌 Linux目录结构 常用目录 意义或作用 etc/passwd 用户信息配置文件 usr/bin/passwd 修改用户口令的命" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/" />
+<meta property="og:image" content="https://v-0-n.github.io/logo.png"/>
+<meta property="article:published_time" content="2023-02-14T23:32:11+08:00" />
+<meta property="article:modified_time" content="2023-02-14T23:32:11+08:00" /><meta property="og:site_name" content="Von&#39;s note" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://v-0-n.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Linux笔记"/>
+<meta name="twitter:description" content="基础 获取帮助方式 命令 &ndash;help 系统去红帽官网 软件去软件官网 百度&amp;谷歌 Linux目录结构 常用目录 意义或作用 etc/passwd 用户信息配置文件 usr/bin/passwd 修改用户口令的命"/>
+<meta name="application-name" content="Von&#39;s notes">
+<meta name="apple-mobile-web-app-title" content="Von&#39;s notes"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/" /><link rel="prev" href="https://v-0-n.github.io/excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/v-0-n.github.io\/linux%E7%AC%94%E8%AE%B0\/"
+        },"image": ["https:\/\/v-0-n.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  4182 ,
+        "url": "https:\/\/v-0-n.github.io\/linux%E7%AC%94%E8%AE%B0\/","datePublished": "2023-02-14T23:32:11+08:00","dateModified": "2023-02-14T23:32:11+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/v-0-n.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Von"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Von&#39;s notes"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Von&#39;s notes</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/linux%E7%AC%94%E8%AE%B0/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Von&#39;s notes"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Von&#39;s notes</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/linux%E7%AC%94%E8%AE%B0/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="aboutme.md" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Von</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-14">2023-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4182 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/linux%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="Linux笔记">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#获取帮助方式"><strong>获取帮助方式</strong></a></li>
+        <li><a href="#linux目录结构"><strong>Linux目录结构</strong></a></li>
+        <li><a href="#常用指令"><strong>常用指令</strong></a></li>
+        <li><a href="#vim常用快捷键">Vim常用快捷键</a></li>
+        <li><a href="#文件相关">文件相关</a>
+          <ul>
+            <li><a href="#linux文件时间">Linux文件时间</a></li>
+            <li><a href="#linux文件类型">Linux文件类型</a></li>
+          </ul>
+        </li>
+        <li><a href="#用户组">用户&amp;组</a>
+          <ul>
+            <li><a href="#用户组的相关配置文件">用户&amp;组的相关配置文件</a></li>
+            <li><a href="#用户组管理">用户&amp;组管理</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件权限">文件权限</a>
+          <ul>
+            <li><a href="#基本权限设置rwx">基本权限设置<code>r</code>、<code>w</code>、<code>x</code></a>
+              <ul>
+                <li><a href="#基本权限设置之ugo">基本权限设置之ugo</a></li>
+                <li><a href="#基本权限之aclfacl">基本权限之ACL（FACL）</a></li>
+              </ul>
+            </li>
+            <li><a href="#高级权限suidguidsticky">高级权限suid、guid、sticky</a></li>
+          </ul>
+        </li>
+        <li><a href="#进程管理">进程管理</a>
+          <ul>
+            <li><a href="#进程状态解释">进程状态解释</a></li>
+            <li><a href="#top命令">top命令</a></li>
+            <li><a href="#使用信号控制进程">使用信号控制进程</a></li>
+            <li><a href="#优先级">优先级</a></li>
+          </ul>
+        </li>
+        <li><a href="#linux中的特殊字符">Linux中的特殊字符</a></li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#tips或注意">Tips或注意：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="基础">基础</h2>
+<h3 id="获取帮助方式"><strong>获取帮助方式</strong></h3>
+<blockquote>
+<ol>
+<li>命令 &ndash;help</li>
+<li>系统去红帽官网</li>
+<li>软件去软件官网</li>
+<li>百度&amp;谷歌</li>
+</ol>
+</blockquote>
+<h3 id="linux目录结构"><strong>Linux目录结构</strong></h3>
+<table>
+<thead>
+<tr>
+<th>常用目录</th>
+<th>意义或作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>etc/passwd</code></td>
+<td>用户信息配置文件</td>
+</tr>
+<tr>
+<td><code>usr/bin/passwd</code></td>
+<td>修改用户口令的命令</td>
+</tr>
+<tr>
+<td><code>/root</code></td>
+<td>超级用户的家目录</td>
+</tr>
+<tr>
+<td><code>/home</code></td>
+<td>普通用户家base目录</td>
+</tr>
+<tr>
+<td><code>/dev/zero</code></td>
+<td>零设备</td>
+</tr>
+<tr>
+<td><code>/dev/null</code></td>
+<td>空设备，类似回收站</td>
+</tr>
+<tr>
+<td><code>/dev/random</code></td>
+<td>产生随机数</td>
+</tr>
+<tr>
+<td><code>/boot</code></td>
+<td>存放和系统启动相关的文件</td>
+</tr>
+<tr>
+<td><code>/proc</code></td>
+<td><strong>虚拟文件系统</strong>。反映出来的是内核、进程信息和实时信心（车的仪表盘）</td>
+</tr>
+<tr>
+<td><code>/usr</code></td>
+<td>存放系统文件，相当于<code>C:\window</code></td>
+</tr>
+<tr>
+<td><code>/bin</code></td>
+<td>普通用户命令、应用程序存放目录</td>
+</tr>
+<tr>
+<td><code>/sbin</code></td>
+<td>管理员命令、应用程序存放目录</td>
+</tr>
+<tr>
+<td><code>/etc</code></td>
+<td>系统相关配置文件、应用相关配置文件</td>
+</tr>
+<tr>
+<td><code>/tmp</code></td>
+<td>临时文件。进程产生的临时文件，全局可写入</td>
+</tr>
+<tr>
+<td><code>/var</code></td>
+<td>存放变化的文件。如日志、邮件、数据库</td>
+</tr>
+<tr>
+<td><code>/mnt</code></td>
+<td>设备挂载点</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>usr</code>下的子目录</th>
+<th>意义或作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/local</code></td>
+<td>软件安装目录，相当于C:Program</td>
+</tr>
+<tr>
+<td><code>/bin</code></td>
+<td>普通用户使用的应用程序、命令</td>
+</tr>
+<tr>
+<td><code>/sbin</code></td>
+<td>管理员使用的应用程序、命令</td>
+</tr>
+<tr>
+<td><code>/lib</code></td>
+<td>库文件Glibc</td>
+</tr>
+<tr>
+<td><code>/lib64</code></td>
+<td>库文件Glibc-64位</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>绝对路径和相对路径</strong></p>
+<p>例：如果当前目录是<code>/root</code>，<code>/a/1.txt</code>和<code>a/1.txt</code>，前者的目录是<code>/a/1.txt</code>，后者的目录是<code>/root/a/1.txt</code>。在路径中，<code>~</code>代表家目录。</p>
+</blockquote>
+<h3 id="常用指令"><strong>常用指令</strong></h3>
+<table>
+<thead>
+<tr>
+<th>常用指令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rm</code></td>
+<td>通配符<code>*</code>无法删除隐藏文件</td>
+</tr>
+<tr>
+<td><code>man</code></td>
+<td>manual：针对命令、配置文件帮助。<code>-f</code>：查章节</td>
+</tr>
+<tr>
+<td><code>tree</code></td>
+<td>查看指定文件夹内文件（夹）结构</td>
+</tr>
+<tr>
+<td><code>mkdir</code></td>
+<td>创建文件夹</td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>复制文件（夹）</td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>unzip</code></td>
+<td>解压</td>
+</tr>
+<tr>
+<td><code>tar</code></td>
+<td>解压缩</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>查看系统实时运行状态</td>
+</tr>
+<tr>
+<td><code>screen</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>yum</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>wget</code></td>
+<td>下载</td>
+</tr>
+<tr>
+<td><code>curl</code></td>
+<td>下载</td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td><code>-n</code>：显示行号 -A：包括显示控制字符。</td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>创建文件</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>移动文件（夹）。利用<code>mv</code>改名</td>
+</tr>
+<tr>
+<td><code>less</code></td>
+<td>查看大文件</td>
+</tr>
+<tr>
+<td><code>geit</code></td>
+<td>需要图形化支持，如无必要不要使用。</td>
+</tr>
+<tr>
+<td><code>dos2unix</code></td>
+<td>转换在windows修改过的文件</td>
+</tr>
+<tr>
+<td><code>head</code></td>
+<td>查看文件一部分（前面部分）</td>
+</tr>
+<tr>
+<td><code>tail</code></td>
+<td>查看文件一部分（后面部分）。<strong>常用<code>tail -f</code></strong></td>
+</tr>
+<tr>
+<td><code>grep</code></td>
+<td>搜索</td>
+</tr>
+<tr>
+<td><code>less</code></td>
+<td>查看大文件</td>
+</tr>
+<tr>
+<td><code>vimdiff</code></td>
+<td>比较两个文件的不同</td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td>看文件类型</td>
+</tr>
+<tr>
+<td><code>stat</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>su username</code></td>
+<td>切换用户</td>
+</tr>
+<tr>
+<td><code>id username</code></td>
+<td>查看username用户信息:uid、gid（主）、gid（所有）</td>
+</tr>
+<tr>
+<td><code>wc</code></td>
+<td>统计文件行、单词数、字符数</td>
+</tr>
+<tr>
+<td><code>tty</code></td>
+<td>显示当前终端数</td>
+</tr>
+<tr>
+<td><code>EOF</code></td>
+<td>重定向</td>
+</tr>
+<tr>
+<td><code>ll</code></td>
+<td>常用来查看文件权限（旧的ugo权限）</td>
+</tr>
+<tr>
+<td>lsattr</td>
+<td>列出文件属性</td>
+</tr>
+<tr>
+<td>chattr</td>
+<td>改变文件属性</td>
+</tr>
+<tr>
+<td>umask</td>
+<td>进程掩码：减权限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vim常用快捷键">Vim常用快捷键</h3>
+<table>
+<thead>
+<tr>
+<th>光标定位</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k</td>
+<td>上</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下</td>
+</tr>
+<tr>
+<td>h</td>
+<td>左</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右</td>
+</tr>
+<tr>
+<td>0</td>
+<td>光标移至本行行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>光标移至本行行尾</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>光标移至第一行行首</td>
+</tr>
+<tr>
+<td>G</td>
+<td>光标移至最后一行行首</td>
+</tr>
+<tr>
+<td>NG</td>
+<td>光标移至第N行行首。</td>
+</tr>
+<tr>
+<td>/string</td>
+<td><code>/</code>代表搜索模式，搜索<code>string</code>。其中string可以使用正则</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>文本编辑</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>yy</code></td>
+<td>复制本行，可视（块、行），只需单按<code>y</code>键</td>
+</tr>
+<tr>
+<td><code>Nyy</code></td>
+<td>从光标所在行开始（包括所在行），复制N行。</td>
+</tr>
+<tr>
+<td><code>ygg</code></td>
+<td>从第一行复制到光标所在行（包括所在行）</td>
+</tr>
+<tr>
+<td><code>yG</code></td>
+<td>从光标所在行开始（包括所在行），复制到最后一行。</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>删除（严格说是剪切）</td>
+</tr>
+<tr>
+<td><code>Ndd</code></td>
+<td>类似于上面的<code>Ngg</code></td>
+</tr>
+<tr>
+<td><code>dgg</code></td>
+<td>类似于上面的<code>ygg</code></td>
+</tr>
+<tr>
+<td><code>dG</code></td>
+<td>类似于上面的<code>yG</code></td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>从光标所在处开始删至本行行尾</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>删除本行</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>撤销上一步操作</td>
+</tr>
+<tr>
+<td><code>Ctrl</code>+<code>r</code></td>
+<td>恢复上一步操作</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td>批量替换          <code>r</code>：单字符替换</td>
+</tr>
+<tr>
+<td><code>ctrl+p</code>&amp;<code>ctrl+n</code></td>
+<td>进行编辑时可自动补全</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>命令模式只能替换</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>可视模式</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v</code></td>
+<td>进入可视模式</td>
+</tr>
+<tr>
+<td><code>Ctrl</code>+<code>v</code></td>
+<td>进入可视块模式</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>进入可视行模式</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>^v进入可视块，按大写<code>I</code>进入进入块插入</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">命令扩展模式</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>:</code></td>
+<td>进入扩展命令模式</td>
+</tr>
+<tr>
+<td align="center"><code>:N</code></td>
+<td>进入第N行行首</td>
+</tr>
+<tr>
+<td align="center"><code>:w</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td align="center"><code>:q</code></td>
+<td>退出</td>
+</tr>
+<tr>
+<td align="center"><code>:wq</code></td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td align="center"><code>:q!</code></td>
+<td>不保存并退出</td>
+</tr>
+<tr>
+<td align="center"><code>:w!</code></td>
+<td>强制保存</td>
+</tr>
+<tr>
+<td align="center"><code>:wq!</code></td>
+<td>强制保存并退出</td>
+</tr>
+<tr>
+<td align="center"><code>:m,n s/old/new/选项</code></td>
+<td>n不写或者m不写，代表从当前行开始或者到当前行结束。类似于sed，可用正则匹配</td>
+</tr>
+<tr>
+<td align="center"><code>:m,n w /path/file</code></td>
+<td>将m到n行保存到path目录下的file文件中（file文件是新建的，m、n可省略）</td>
+</tr>
+<tr>
+<td align="center"><code>:n r /path/file</code></td>
+<td>将path目录下file文件的内容读入当前文件第n行后</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>临时设置环境</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:set nu</code></td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td><code>:set ic</code></td>
+<td>不区分大小写</td>
+</tr>
+<tr>
+<td><code>:set ai</code></td>
+<td>自动缩进</td>
+</tr>
+<tr>
+<td><code>:set list</code></td>
+<td>显示控制字符</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>永久设置配置路径</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/etc/vimrc</code></td>
+<td>修改所有用户vim配置</td>
+</tr>
+<tr>
+<td><code>~/.vimrc</code></td>
+<td>影响当前用户的vim配置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文件相关">文件相关</h3>
+<h4 id="linux文件时间">Linux文件时间</h4>
+<blockquote>
+<ol>
+<li>access time：访问时间</li>
+<li>modify time：修改时间</li>
+<li>change time：改变时间</li>
+<li>delete time：删除时间</li>
+</ol>
+</blockquote>
+<h4 id="linux文件类型">Linux文件类型</h4>
+<p><code>ls - l 文件名</code>判断：</p>
+<ol>
+<li>以<code>-</code>开头：普通文件</li>
+<li>以<code>d</code>开头：目录文件（蓝色）</li>
+<li>以<code>b</code>开头：设备文件（存储设备硬盘）</li>
+<li>以<code>c</code>开头：设备文件（打印机、终端等）</li>
+<li>以<code>s</code>开头：套接字文件</li>
+<li>以<code>p</code>开头：管道文件</li>
+<li>以<code>l</code>开头：链接文件（淡蓝色）</li>
+</ol>
+<blockquote>
+<p><code>type</code>:查看命令类型或属性</p>
+<p><code>stat</code>:查看问文件属性（名称、大小、时间、权限）</p>
+<p><code>file</code>:查看文件类型</p>
+</blockquote>
+<h3 id="用户组">用户&amp;组</h3>
+<h4 id="用户组的相关配置文件">用户&amp;组的相关配置文件</h4>
+<p><code>/etc/passwd</code>：用户信息文件</p>
+<p><code>/etc/shadow</code>：密码信息文件</p>
+<p><code>/etc/group</code>：组信息文件</p>
+<blockquote>
+<ol>
+<li>/etc/passwd文件内容格式：</li>
+</ol>
+<p>​          <code>用户名❌uid:gid:描述:用户所在家的目录:shell目录 </code>。其中，<code>gid</code>指的是主用户组</p>
+<ol start="2">
+<li>
+<p>/etc/shadow文件内容格式：</p>
+<p><code>用户名:$加密算法id$salt(随机数):密码（加密后的）:最后一次修改密码的时间:多长时间内不能改密码：多长时间后必须更改密码</code>      倒数第二的内容：多长时间后密码失效不可用</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="用户组管理">用户&amp;组管理</h4>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>groupadd</code></td>
+<td>添加组</td>
+</tr>
+<tr>
+<td><code>groupdel</code></td>
+<td>删除组</td>
+</tr>
+<tr>
+<td><code>useradd</code></td>
+<td>添加用户。 <code>-g</code>：指定主组    <code>-G</code>：指定附加组</td>
+</tr>
+<tr>
+<td><code>userdel</code></td>
+<td>删除用户,无法删除用户家目录和邮箱，<code>-r</code>参数可解</td>
+</tr>
+<tr>
+<td><code>usermod</code></td>
+<td>改变用户</td>
+</tr>
+<tr>
+<td><code>passwd username</code></td>
+<td>root可以更改所有用户密码。普通用户只能修改自己的密码</td>
+</tr>
+<tr>
+<td><code>change</code></td>
+<td>修改密码  参数查看&ndash;help  <code>-d 0</code>参数常用于修改初始密码</td>
+</tr>
+<tr>
+<td><code>gpasswd</code></td>
+<td><code>-a</code>：添加用户到组   <code>-d</code>：从组中删除用户   <code>-M</code>：批量添加用户到组</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ol>
+<li><code>useradd</code>使用<code>-g</code>、<code>-G</code>时，指定的组必需事先存在。</li>
+<li><code>uaseradd</code>使用<code>-s /sbin/nologin</code>设置用户nologin时，应用场景有用户可以访问邮件、ftp、运行进程等，但无法管理系统。</li>
+<li>原则：主组自动创建，附加组手动指定。</li>
+<li><code>usermod</code>、<code>gpasswd</code>将已存在的用户加到组中。usermod的-G参数覆盖原有的附加组。-aG参数则是新增附加组。其<code>-s /sbin/nologin</code>参数和useradd用法相同。</li>
+<li><code>/etc/login.defs</code>、 <code>/etc/default/useradd</code>影响创建用户时的相关内容</li>
+<li><code>useradd</code>创建用户时从<code>/etc/skel</code>复制一套bash环境文件到用户的家目录。</li>
+</ol>
+</blockquote>
+<h3 id="文件权限">文件权限</h3>
+<h4 id="基本权限设置rwx">基本权限设置<code>r</code>、<code>w</code>、<code>x</code></h4>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chown</code></td>
+<td>改变文件属主（所有者）和属组   <code>-r</code>参数递归</td>
+</tr>
+<tr>
+<td><code>chgrp</code></td>
+<td>改变用户属组（group）</td>
+</tr>
+<tr>
+<td><code>chmod</code></td>
+<td>改变文件权限</td>
+</tr>
+<tr>
+<td><code>getfacl</code></td>
+<td>查看文件（夹）acl权限</td>
+</tr>
+<tr>
+<td><code>setfacl</code></td>
+<td>设置文件（夹）acl权限（直接是新增，不会覆盖原ugo权限）。只能是已存在的u、g</td>
+</tr>
+</tbody>
+</table>
+<h5 id="基本权限设置之ugo">基本权限设置之ugo</h5>
+<p>u：user      g：group     o：other</p>
+<blockquote>
+<p>​                 u                +               r(4)</p>
+<p>chmod     g                —             w(2)           file</p>
+<p>​                 o                =               x(1)</p>
+<p>​                 a                                                                                                <code>a</code>指<code>ugo</code></p>
+</blockquote>
+<h5 id="基本权限之aclfacl">基本权限之ACL（FACL）</h5>
+<ol>
+<li><code>mask</code>决定自定义用户和所有组的最高权限（掐头去尾）。应用场景：<strong>临时</strong>修改用户和组的权限。</li>
+<li><strong>继承(default)权限</strong>,需要在设置时明确指定。并且继承权限发生在后续动作。</li>
+</ol>
+<h4 id="高级权限suidguidsticky">高级权限suid、guid、sticky</h4>
+<ol>
+<li>s：例如passwd程序拥有s权限。那么所有（用户）便可以以root的身份暂时运行passwd程序。</li>
+<li>g：在新建的文件夹上加上sgid，那么在该文件夹内新创建的文件属组会得到继承（<strong>只继承属组</strong>）。</li>
+<li>t：目录添加t权限（粘滞位），文件和该目录的所有者能删除，其他人无法删除（此处不包括root）</li>
+<li>小写<code>s</code>、<code>t</code>权限比大写<code>S</code>、<code>T</code>完全</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">文件</th>
+<th align="center">目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">suid</td>
+<td align="center">以所有者身份执行</td>
+<td align="center">——</td>
+</tr>
+<tr>
+<td align="center">sgid</td>
+<td align="center">以所有组身份执行</td>
+<td align="center">能够继承属组</td>
+</tr>
+<tr>
+<td align="center">sticky</td>
+<td align="center">——</td>
+<td align="center">用户只能删除自己的文件</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ol>
+<li>
+<p>**文件属性：**属性凌驾于权限上</p>
+</li>
+<li>
+<p>umask:影响新建文件、目录的默认初始权限。不同的进程可以设置自己的umask</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://pic.vong.one/Captures/1.png"
+        data-srcset="http://pic.vong.one/Captures/1.png, http://pic.vong.one/Captures/1.png 1.5x, http://pic.vong.one/Captures/1.png 2x"
+        data-sizes="auto"
+        alt="http://pic.vong.one/Captures/1.png"
+        title="1" /></p>
+</li>
+</ol>
+</blockquote>
+<h3 id="进程管理">进程管理</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pstree</td>
+<td>查看进程树</td>
+</tr>
+<tr>
+<td>ps</td>
+<td>静态查看进程.<code>--sort</code>用来（正向）排序，若想反向排序在列名称前加<code>-</code>。-f参数可查看树结构</td>
+</tr>
+<tr>
+<td>top</td>
+<td>动态查看进程</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="进程状态解释">进程状态解释</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://pic.vong.one/Captures/3.png"
+        data-srcset="http://pic.vong.one/Captures/3.png, http://pic.vong.one/Captures/3.png 1.5x, http://pic.vong.one/Captures/3.png 2x"
+        data-sizes="auto"
+        alt="http://pic.vong.one/Captures/3.png"
+        title="3" /></p>
+<h4 id="top命令">top命令</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>后续加秒表明几秒刷新一次</td>
+</tr>
+<tr>
+<td>1</td>
+<td>刷新界面按1显示所有cpu负载</td>
+</tr>
+</tbody>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://pic.vong.one/Captures/2-1.png"
+        data-srcset="http://pic.vong.one/Captures/2-1.png, http://pic.vong.one/Captures/2-1.png 1.5x, http://pic.vong.one/Captures/2-1.png 2x"
+        data-sizes="auto"
+        alt="http://pic.vong.one/Captures/2-1.png"
+        title="http://pic.vong.one/Captures/2-1.png" /></p>
+<h4 id="使用信号控制进程">使用信号控制进程</h4>
+<ol>
+<li>
+<p><code>kill -l</code>查看所有控制信号</p>
+</li>
+<li>
+<p>常用信号</p>
+<ol>
+<li>
+<p>sighup：重新加载配置，pid不变</p>
+</li>
+<li>
+<p>sigint：相当于<code>ctrl</code>+<code>c</code></p>
+</li>
+<li>
+<p>sigquit：键盘退出</p>
+</li>
+<li>
+<p>sigkill：强制终止(<strong>轻易不要用</strong>)</p>
+</li>
+<li>
+<p>sigterm：正常终止，缺省信号</p>
+</li>
+<li>
+<p>sigcont：继续</p>
+</li>
+<li>
+<p>sigstop：停止</p>
+</li>
+<li>
+<p>sigtstp：暂停相当于<code>ctrl</code>+<code>z</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong><code>kill</code>和<code>killall</code>区别</strong>：<code>kill</code>只能杀pid和jobid。<code>killall</code>跟进程名字。</p>
+</li>
+<li>
+<p><code>pkill</code>:</p>
+<blockquote>
+<p><code>pkill -t 终端</code>：终止终端上的所有进程</p>
+<p><code>pkill -9 -t 终端</code>：结束终端上所有进程并结束该终端</p>
+</blockquote>
+</li>
+<li>
+<p><code>pgrep</code>：查看进程id</p>
+</li>
+</ol>
+<h4 id="优先级">优先级</h4>
+<p>cfq调度程序</p>
+<blockquote>
+<ol>
+<li>nice:相对优先级（屌丝）</li>
+<li>RT、fifo：高富帅</li>
+</ol>
+</blockquote>
+<h3 id="linux中的特殊字符">Linux中的特殊字符</h3>
+<table>
+<thead>
+<tr>
+<th>|</th>
+<th>管道符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>||</td>
+<td>逻辑关系中表示或</td>
+</tr>
+<tr>
+<td>!</td>
+<td>逻辑关系中表示非，</td>
+</tr>
+<tr>
+<td>#</td>
+<td>命令行前的#代表root用户，命令行后的#代表注释</td>
+</tr>
+<tr>
+<td>$</td>
+<td>在linux文件中代表换行符，正则中代表结尾，命令行前代表普通用户</td>
+</tr>
+<tr>
+<td>^</td>
+<td></td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>~</td>
+<td>目录中代表当前用户的家目录，</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>vim中代表反向引用</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>'&rsquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>&quot;&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>()</td>
+<td></td>
+</tr>
+<tr>
+<td>[]</td>
+<td>条件测试</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>表示集合</td>
+</tr>
+<tr>
+<td>/</td>
+<td></td>
+</tr>
+<tr>
+<td>*</td>
+<td></td>
+</tr>
+<tr>
+<td>``             |                                                              |</td>
+<td></td>
+</tr>
+<tr>
+<td>..</td>
+<td>切换目录中代表返回上一层目录</td>
+</tr>
+<tr>
+<td>.</td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>切换目录中代表退回上一次的目录</td>
+</tr>
+<tr>
+<td>%</td>
+<td>在vim中表示全文；</td>
+</tr>
+<tr>
+<td>&laquo;</td>
+<td>重定向，前面加-代表内容支持table缩进</td>
+</tr>
+<tr>
+<td>(())</td>
+<td>数值比较和运算</td>
+</tr>
+<tr>
+<td><code>$()</code>、``      | 命令替换                                                     |</td>
+<td></td>
+</tr>
+<tr>
+<td>${}</td>
+<td>变量的引用和替换</td>
+</tr>
+<tr>
+<td>[[]]</td>
+<td>支持正则的条件测试</td>
+</tr>
+<tr>
+<td><code>$(())</code>、<code>$[]</code></td>
+<td>整数运算</td>
+</tr>
+<tr>
+<td>:</td>
+<td>可以代表命令ture</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>ftp配置文件详解</p>
+<blockquote>
+</blockquote>
+<h3 id="变量">变量</h3>
+<p>变量中包含空格需要用双引号或者单引号引起来，单引号是强引用，双引号是弱引用。</p>
+<h3 id="tips或注意">Tips或注意：</h3>
+<ol>
+<li>
+<p>手动删除用相对路径删，脚本删除用绝对路径删</p>
+</li>
+<li>
+<p>在linux中文件末尾都会默认加上换行符。linux中换行符用<code>$</code>表示，windows中用^M表示。所以有的文本，比如脚本如果在windows的<strong>记事本</strong>中修改过将无法在服务器中使用。需要安装dos2unix软件（<code>yum -y install dos2unix</code>）。</p>
+</li>
+<li>
+<p><code>\etc\bashrc</code>:bash的配置文件（用来永久修改别名等问题）。</p>
+</li>
+<li>
+<p>Linux有两种时间：linux软件时间、bios硬件时间</p>
+</li>
+<li>
+<p>在sed和vim中都可以使用分隔符(<code>!</code>、<code>@</code>、<code>#</code>)代替转义符号<code>\</code>。</p>
+</li>
+<li>
+<p>vim可同时打开两个文件，使用快捷键<code>ctrl</code>+<code>w</code>+<code>w</code>进行两文件间的切换。退出时<code>:q</code>只能退出一个。<code>qall</code>能够全部退出</p>
+</li>
+<li>
+<p>uid为0是特权用户</p>
+</li>
+<li>
+<p>大多数设备只能由root控制</p>
+</li>
+<li>
+<p>普通用户提权：1.将用户加入wheel组；2.然后在命令前添加sudo。</p>
+</li>
+<li>
+<p>重启和重新加载：重启是停止+启动；重新加载是reload或者reconfigure。</p>
+</li>
+<li>
+<p><strong>命令和文件自动补齐：安装</strong><code>yum -y install bash-completion</code></p>
+</li>
+<li>
+<p><code>rpm -qc 程序</code>：查看程序的配置文件</p>
+</li>
+<li>
+<p>ctrl+z暂停当前前台任务，fg返回暂停任务（用于临时进行任务切换）</p>
+</li>
+<li>
+<p>命令替换：反引号或者<code>$()</code></p>
+</li>
+<li>
+<p>查看进程打开了什么文件，使用指令<code>ls /proc/$pid/fd</code>(fd:文件描述符)</p>
+</li>
+<li>
+<p>ftp共享目录：<code>/var/ftp</code>  配置目录：<code>/etc/vsftpd/vsftpd.conf</code></p>
+</li>
+<li>
+<p>selinux配置目录：<code>/ect/selinux/config</code></p>
+</li>
+<li>
+<p>dns配置文件：<code>/etc/resolv.conf</code></p>
+</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-02-14</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/" data-title="Linux笔记"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/" data-title="Linux笔记"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/" data-title="Linux笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://v-0-n.github.io/linux%E7%AC%94%E8%AE%B0/" data-title="Linux笔记" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/" class="prev" rel="prev" title="First Post"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>First Post</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">自定义内容</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="aboutme.md" target="_blank">Von</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">ICP 备案信息，仅在中国使用 (支持 HTML 格式)</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
