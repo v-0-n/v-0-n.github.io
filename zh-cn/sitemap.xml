@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://v-0-n.github.io/about/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://v-0-n.github.io/posts/Linux%E7%AC%94%E8%AE%B0/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://v-0-n.github.io/posts/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://v-0-n.github.io/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
@@ -24,7 +25,7 @@
                     href="https://v-0-n.github.io/categories/"
                     /></url><url>
             <loc>https://v-0-n.github.io/categories/Development/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://v-0-n.github.io/posts/First-Post/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://v-0-n.github.io/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://v-0-n.github.io/tags/plugins/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://v-0-n.github.io/tags/spf13-vim/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://v-0-n.github.io/tags/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
