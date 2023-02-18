@@ -4,8 +4,8 @@
     ><url>
             <loc>https://vong.one/about/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://vong.one/posts/Linux%E7%AC%94%E8%AE%B0/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/posts/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://vong.one/posts/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://vong.one/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://vong.one/en/"
@@ -14,8 +14,7 @@
                     hreflang="zh-cn"
                     href="https://vong.one/"
                     /></url><url>
-            <loc>https://vong.one/tags/.vimrc/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://vong.one/categories/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://vong.one/categories/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://vong.one/en/categories/"
@@ -24,11 +23,13 @@
                     hreflang="zh-cn"
                     href="https://vong.one/categories/"
                     /></url><url>
-            <loc>https://vong.one/categories/Development/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://vong.one/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://vong.one/tags/plugins/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://vong.one/tags/spf13-vim/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://vong.one/tags/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://vong.one/tags/hugo/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://vong.one/categories/hugo/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://vong.one/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://vong.one/tags/latex/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://vong.one/tags/markdown/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://vong.one/categories/markdown/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://vong.one/tags/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://vong.one/en/tags/"
@@ -36,6 +37,4 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://vong.one/tags/"
-                    /></url><url>
-            <loc>https://vong.one/categories/VIM/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://vong.one/tags/vim/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
+                    /></url></urlset>
