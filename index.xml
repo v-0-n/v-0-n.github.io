@@ -1,25 +1,25 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Von&#39;s notes</title>
-        <link>https://v-0-n.github.io/</link>
+        <link>https://vong.one/</link>
         <description>用于 RSS, SEO, Open Graph 和 Twitter Cards</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fgq827673334@outlook.com (Von)</managingEditor>
             <webMaster>fgq827673334@outlook.com (Von)</webMaster><copyright>language下的copyright</copyright><lastBuildDate>Tue, 14 Feb 2023 23:32:11 &#43;0800</lastBuildDate>
-            <atom:link href="https://v-0-n.github.io/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://vong.one/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Linux笔记</title>
-    <link>https://v-0-n.github.io/posts/Linux%E7%AC%94%E8%AE%B0/</link>
+    <link>https://vong.one/posts/Linux%E7%AC%94%E8%AE%B0/</link>
     <pubDate>Tue, 14 Feb 2023 23:32:11 &#43;0800</pubDate>
     <author>Von</author>
-    <guid>https://v-0-n.github.io/posts/Linux%E7%AC%94%E8%AE%B0/</guid>
+    <guid>https://vong.one/posts/Linux%E7%AC%94%E8%AE%B0/</guid>
     <description><![CDATA[基础 获取帮助方式 命令 &ndash;help 系统去红帽官网 软件去软件官网 百度&amp;谷歌 Linux目录结构 常用目录 意义或作用 etc/passwd 用户信息配置文件 usr/bin/passwd 修改用户口令的命]]></description>
 </item>
 <item>
     <title>hugo文章示例</title>
-    <link>https://v-0-n.github.io/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</link>
+    <link>https://vong.one/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</link>
     <pubDate>Tue, 14 Feb 2023 21:12:32 &#43;0800</pubDate>
     <author>Von</author>
-    <guid>https://v-0-n.github.io/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</guid>
+    <guid>https://vong.one/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</guid>
     <description><![CDATA[excel快捷键大全 注意 一个 注意 横幅 摘要 一个 摘要 横幅 信息 一个 信息 横幅 技巧 一个 技巧 横幅 成功 一个 成功 横幅 问题 一个 问题 横幅 警告 一个 警告 横幅 失败 一个]]></description>
 </item>
 </channel>

@@ -2,30 +2,30 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://v-0-n.github.io/en/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://vong.one/en/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://v-0-n.github.io/categories/"
+                        href="https://vong.one/categories/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="https://v-0-n.github.io/en/categories/"
+                    href="https://vong.one/en/categories/"
                     /></url><url>
-            <loc>https://v-0-n.github.io/en/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://vong.one/en/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://v-0-n.github.io/tags/"
+                        href="https://vong.one/tags/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="https://v-0-n.github.io/en/tags/"
+                    href="https://vong.one/en/tags/"
                     /></url><url>
-            <loc>https://v-0-n.github.io/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://vong.one/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://v-0-n.github.io/"
+                        href="https://vong.one/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="https://v-0-n.github.io/en/"
+                    href="https://vong.one/en/"
                     /></url></urlset>
