@@ -4,9 +4,25 @@
         <link>https://vong.one/</link>
         <description>用于 RSS, SEO, Open Graph 和 Twitter Cards</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fgq827673334@outlook.com (Von)</managingEditor>
-            <webMaster>fgq827673334@outlook.com (Von)</webMaster><copyright>language下的copyright</copyright><lastBuildDate>Tue, 14 Feb 2023 23:32:11 &#43;0800</lastBuildDate>
+            <webMaster>fgq827673334@outlook.com (Von)</webMaster><copyright>language下的copyright</copyright><lastBuildDate>Tue, 21 Feb 2023 23:24:25 &#43;0800</lastBuildDate>
             <atom:link href="https://vong.one/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>名言搜集</title>
+    <link>https://vong.one/posts/%E5%90%8D%E8%A8%80%E6%90%9C%E9%9B%86/</link>
+    <pubDate>Tue, 21 Feb 2023 23:24:25 &#43;0800</pubDate>
+    <author>Von</author>
+    <guid>https://vong.one/posts/%E5%90%8D%E8%A8%80%E6%90%9C%E9%9B%86/</guid>
+    <description><![CDATA[罗曼·罗兰 世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活。 先相信自己，然後別人才會相信你。 心得 为人处世自信很重要，它所带来的种种好]]></description>
+</item>
+<item>
+    <title>基于RS485 RTU通讯的电子设备</title>
+    <link>https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/</link>
+    <pubDate>Mon, 20 Feb 2023 00:19:15 &#43;0800</pubDate>
+    <author>Von</author>
+    <guid>https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/</guid>
+    <description><![CDATA[六遥 遥信(DI或YX)：典型应用位长时间触点的闭合断开，如断路器的位置信号 遥测(AI或YC)：采集$U$、$I$、$T$等 遥调(AO)：应用]]></description>
+</item>
+<item>
     <title>Linux笔记</title>
     <link>https://vong.one/posts/Linux%E7%AC%94%E8%AE%B0/</link>
     <pubDate>Tue, 14 Feb 2023 23:32:11 &#43;0800</pubDate>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>基于RS485 RTU通讯的电子设备 - Von&#39;s notes</title><meta name="Description" content="用于 RSS, SEO, Open Graph 和 Twitter Cards"><meta property="og:title" content="基于RS485 RTU通讯的电子设备" />
+<meta property="og:description" content="六遥 遥信(DI或YX)：典型应用位长时间触点的闭合断开，如断路器的位置信号 遥测(AI或YC)：采集$U$、$I$、$T$等 遥调(AO)：应用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" />
+<meta property="og:image" content="https://vong.one/logo.png"/>
+<meta property="article:published_time" content="2023-02-20T00:19:15+08:00" />
+<meta property="article:modified_time" content="2015-12-23T00:00:00+00:00" /><meta property="og:site_name" content="Von&#39;s note" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://vong.one/logo.png"/>
+
+<meta name="twitter:title" content="基于RS485 RTU通讯的电子设备"/>
+<meta name="twitter:description" content="六遥 遥信(DI或YX)：典型应用位长时间触点的闭合断开，如断路器的位置信号 遥测(AI或YC)：采集$U$、$I$、$T$等 遥调(AO)：应用"/>
+<meta name="application-name" content="Von&#39;s notes">
+<meta name="apple-mobile-web-app-title" content="Von&#39;s notes"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" /><link rel="prev" href="https://vong.one/posts/Linux%E7%AC%94%E8%AE%B0/" /><link rel="next" href="https://vong.one/posts/%E5%90%8D%E8%A8%80%E6%90%9C%E9%9B%86/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "基于RS485 RTU通讯的电子设备",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vong.one\/posts\/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87\/"
+        },"image": ["https:\/\/vong.one\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": " modbus485-RTU,  仪表,  通讯","wordcount":  3230 ,
+        "url": "https:\/\/vong.one\/posts\/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87\/","datePublished": "2023-02-20T00:19:15+08:00","dateModified": "2015-12-23T00:00:00+00:00","license": "language下的copyright","publisher": {
+            "@type": "Organization",
+            "name": "Von","logo": "https:\/\/vong.one\/images\/2.png"},"author": {
+                "@type": "Person",
+                "name": "Von"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Von&#39;s notes"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Von&#39;s notes</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/v-0-n" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Von&#39;s notes"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Von&#39;s notes</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/v-0-n" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">基于RS485 RTU通讯的电子设备</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="aboutme.md" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Von</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/RS485-RTU/"><i class="far fa-folder fa-fw" aria-hidden="true"></i> RS485-RTU</a>&nbsp;<a href="/categories/%E9%80%9A%E8%AE%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i> 通讯</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-20">2023-02-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3230 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" class="leancloud_visitors" data-flag-title="基于RS485 RTU通讯的电子设备">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#六遥">六遥</a></li>
+      </ol>
+    </li>
+    <li><a href="#modbus功能码">Modbus功能码</a>
+      <ol>
+        <li><a href="#部分公用功能码">部分公用功能码</a>
+          <ol>
+            <li><a href="#tip">tip:</a></li>
+          </ol>
+        </li>
+        <li><a href="#0x08-诊断功能">0x08 诊断功能</a>
+          <ol>
+            <li><a href="#常用的-modbus-诊断子功能码">常用的 Modbus 诊断子功能码</a></li>
+          </ol>
+        </li>
+        <li><a href="#0x11-报告从站-id">0x11 报告从站 ID</a></li>
+        <li><a href="#modbus-异常响应">Modbus 异常响应</a>
+          <ol>
+            <li><a href="#异常响应">异常响应</a></li>
+            <li><a href="#异常功能码">异常功能码</a></li>
+            <li><a href="#异常帧">异常帧</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#plc寄存器地址分配">PLC寄存器地址分配</a></li>
+    <li><a href="#专业术语">专业术语</a></li>
+    <li><a href="#modbus开发环境">Modbus开发环境</a></li>
+  </ol>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="六遥">六遥</h3>
+<blockquote>
+<p>遥信(DI或YX)：典型应用位长时间触点的闭合断开，如断路器的位置信号</p>
+<p>遥测(AI或YC)：采集$U$、$I$、$T$等</p>
+<p>遥调(AO)：应用于变压器调压、无功调节等</p>
+<p>遥控(YK或DO)：应用于断路器的分合闸，不同于遥信，为短时脉动信号</p>
+<p>遥脉:使用脉冲信号向系统发送信息,多用于综自系统电能计量</p>
+</blockquote>
+<p>Modbus-RTU</p>
+<p>规约格式附在软件说明书后</p>
+<h2 id="modbus功能码">Modbus功能码</h2>
+<p>Modbus 功能码占用一个字节，取值范围是 1~127（即 0x01~0x7F）。同时，使用功能码 + 0x80 表示异常状态，即 129~255 代表异常码。</p>
+<p>在 Modbus 标准协议中，一共规定了三类 Modbus 功能码。</p>
+<ol>
+<li>公共功能码
+<ul>
+<li>被明确定义的功能码；</li>
+<li>保证唯一性；</li>
+<li>由 Modbus 协会确认，并提供公开的文档；</li>
+<li>可进行一致性测试；</li>
+<li>包括协议定义的功能码和保留将来使用的功能码。</li>
+</ul>
+</li>
+<li>用户自定义功能码
+<ul>
+<li>有两个用户自定义功能码区域，分别是 65~72 和 100~110；</li>
+<li>用户自定义，不保证唯一性。</li>
+</ul>
+</li>
+<li>保留功能码
+<ul>
+<li>保留功能码是因为历史遗留原因，某些公司的传统产品上现行使用的功能码不作为公共使用。</li>
+</ul>
+</li>
+</ol>
+<h3 id="部分公用功能码">部分公用功能码</h3>
+<table>
+<thead>
+<tr>
+<th>代码（dec）</th>
+<th>名称</th>
+<th>英文</th>
+<th>寄存器 PLC 地址</th>
+<th>位/字操作</th>
+<th>操作数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>读线圈状态</td>
+<td>Read Coils</td>
+<td>00001~09999</td>
+<td>位操作</td>
+<td>单个或多个</td>
+</tr>
+<tr>
+<td>02</td>
+<td>读离散输入状态</td>
+<td>Read Discrete Inputs</td>
+<td>10001~19999</td>
+<td>位操作</td>
+<td>单个或多个</td>
+</tr>
+<tr>
+<td>03</td>
+<td>读保持寄存器</td>
+<td>Read Holding Registers</td>
+<td>40001~49999</td>
+<td>字操作</td>
+<td>单个或多个</td>
+</tr>
+<tr>
+<td>04</td>
+<td>读输入寄存器</td>
+<td>Read Input Registers</td>
+<td>30001~39999</td>
+<td>字操作</td>
+<td>单个或多个</td>
+</tr>
+<tr>
+<td>05</td>
+<td>写单个线圈</td>
+<td>Write Single Coil</td>
+<td>00001~09999</td>
+<td>位操作</td>
+<td>单个</td>
+</tr>
+<tr>
+<td>06</td>
+<td>写单个保持寄存器</td>
+<td>Write Single Register</td>
+<td>40001~49999</td>
+<td>字操作</td>
+<td>单个</td>
+</tr>
+<tr>
+<td>15</td>
+<td>写多个线圈</td>
+<td>Write Multiple Coils</td>
+<td>00001~09999</td>
+<td>位操作</td>
+<td>多个</td>
+</tr>
+<tr>
+<td>16</td>
+<td>写多个保持寄存器</td>
+<td>Write Multiple Registers</td>
+<td>40001~49999</td>
+<td>字操作</td>
+<td>多个</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tip">tip:</h4>
+<p>需要注意，在 Modbus 协议规定的 PDU 中，规定所有线圈或寄存器地址从 0 开始计算。</p>
+<p>在0x05中，目标数据（即查询报文中的 ON/OFF 状态）由报文数据字段的常数指定，0xFF00 表示 ON 状态，0x0000 表示 OFF 状态，其余所有值均是非法的。</p>
+<p>0x0F：支持广播模式；在广播模式下，所有从站设备的同一地址的值将被统一修改；消息帧中指定了需要变更的线圈起始地址和线圈数目；数据字段中为逻辑 1 的位对应 ON，逻辑 0 的位对应 OFF</p>
+<p>0x10：在实际开发中，该功能码常用于方便用户写入多字节类型的数据，例如浮点数值。因此，需要注意字节序问题。</p>
+<h3 id="0x08-诊断功能">0x08 诊断功能</h3>
+<ul>
+<li>仅用于串行链路，主要用于检测主设备和从设备之间的通信故障，或检测从设备的各种内部故障，不支持广播。</li>
+<li>查询报文中需要指定从设备地址、功能码（Modbus Command）以及子功能码（Diagnostic Sub-function）。其中，子功能码字段为 2 个字节，用于区别各诊断类型。</li>
+<li>在正常的响应报文中，从设备将原样回复功能码和子功能码。</li>
+<li>modbus中线圈（coil）和寄存器（register）的概念主要起源于PLC，在 PLC 应用领域，一个线圈就代表一个 PLC 输出点，也称为输出继电器。通过控制线圈导通与否来改变继电器输出状态，实现弱电控制强电。但实际上，在如今的 Modbus 设备中，它们都只是对应一块内存区域而已。其中，<em>线圈代表位操作（bit），表示一个布尔变量；寄存器代表字操作（word），表示一个整型变量</em>（当然也可以通过多个字的组合，表示浮点数以及其他复合数据结构）。</li>
+</ul>
+<h4 id="常用的-modbus-诊断子功能码">常用的 Modbus 诊断子功能码</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能码</td>
+<td>子功能码</td>
+<td>描述</td>
+<td>说明</td>
+</tr>
+<tr>
+<td>08</td>
+<td>00（0x00）</td>
+<td>Return Data Query (Loop-back)</td>
+<td>原样返回查询报文</td>
+</tr>
+<tr>
+<td>08</td>
+<td>01（0x01）</td>
+<td>Restart Communications</td>
+<td>用于初始化并重新启动从站设备 其中，报文字段 0x00, 0x00 表示保持事件记录 0xFF, 0x00 表示清除事件记录</td>
+</tr>
+<tr>
+<td>08</td>
+<td>02（0x02）</td>
+<td>Return Diagnostic Register</td>
+<td>返回诊断寄存器内容</td>
+</tr>
+<tr>
+<td>08</td>
+<td>03（0x03）</td>
+<td>Change ASCII Input Delimiter</td>
+<td></td>
+</tr>
+<tr>
+<td>08</td>
+<td>04（0x04）</td>
+<td>Force Listen Only Mode</td>
+<td>强制被寻址的从站设备进入只听模式 使其与网络中的其他设备断开，不返回响应</td>
+</tr>
+<tr>
+<td>08</td>
+<td>10（0x0A）</td>
+<td>Clear Counters and Diagnostic Registers</td>
+<td>清除计数器和诊断寄存器</td>
+</tr>
+<tr>
+<td>08</td>
+<td>11（0x0B）</td>
+<td>Return Bus Message Count</td>
+<td>返回总线报文计数值</td>
+</tr>
+<tr>
+<td>08</td>
+<td>12（0x0C）</td>
+<td>Return Bus Communication Error Count</td>
+<td>返回总线通信 CRC 出错计数</td>
+</tr>
+<tr>
+<td>08</td>
+<td>13（0x0D）</td>
+<td>Return Bus Exception Error Count</td>
+<td>返回总线异常计数</td>
+</tr>
+<tr>
+<td>08</td>
+<td>14（0x0E）</td>
+<td>Return Slave Message Count</td>
+<td>返回从站设备接收的报文数量</td>
+</tr>
+<tr>
+<td>08</td>
+<td>15（0x0F）</td>
+<td>Return Slave No Response Count</td>
+<td>返回从站设备没有返回响应的报文数量</td>
+</tr>
+<tr>
+<td>08</td>
+<td>16（0x10）</td>
+<td>Return Slave NAK Count</td>
+<td></td>
+</tr>
+<tr>
+<td>08</td>
+<td>17（0x11）</td>
+<td>Return Slave Busy Count</td>
+<td>返回从站设备响应忙的报文数量</td>
+</tr>
+<tr>
+<td>08</td>
+<td>18（0x12）</td>
+<td>Return Bus Character Overrun Count</td>
+<td>返回总线字符超限的报文数量</td>
+</tr>
+<tr>
+<td>08</td>
+<td>19（0x13）</td>
+<td>Return IOP Overrun Count (884)</td>
+<td></td>
+</tr>
+<tr>
+<td>08</td>
+<td>20（0x14）</td>
+<td>Clear Overrun Counter and Flag (884)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="0x11-报告从站-id">0x11 报告从站 ID</h3>
+<ul>
+<li>该功能码仅适用于串行链路，用于读取从站设备的 ID、类型描述、当前状态以及其他信息，不支持广播模式。</li>
+<li>查询报文中没有数据字段。</li>
+<li>响应消息的构成由从站设备决定。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>寄存器种类</th>
+<th>含义</th>
+<th>PLC</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线圈状态 （Coil Status）</td>
+<td>输出端口（可读可写）</td>
+<td>DO（数字量输出）</td>
+<td>电磁阀输出、LED 显示、遥控</td>
+</tr>
+<tr>
+<td>离散输入状态 （Input Status）</td>
+<td>输入端口（只读）</td>
+<td>DI（数字量输入）</td>
+<td>拨码开关、微动开关、遥信</td>
+</tr>
+<tr>
+<td>保持寄存器 （Holding Register）</td>
+<td>输出参数（可读可写）</td>
+<td>AO（模拟量输出）</td>
+<td>PID 运行参数、阈值上下限、定值参数、时间等</td>
+</tr>
+<tr>
+<td>输入寄存器 （Input Register）</td>
+<td>输入参数（只读）</td>
+<td>AI（模拟量输入）</td>
+<td>传感器数据输入、遥测</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modbus-异常响应">Modbus 异常响应</h3>
+<h4 id="异常响应">异常响应</h4>
+<p>通常来说，在 Modbus 主设备（客户端）和从设备（服务器）的通信过程中，存在以下 4 种处理反馈：</p>
+<ul>
+<li>正常接收，正常处理，返回正常响应报文。</li>
+<li>因为通信错误等原因，造成从站设备没有接收到查询报文，主站设备将按超时处理。</li>
+<li>从站设备接收到查询报文，但报文存在错误（例如 LRC、CRC 错误等），从站设备将丢弃报文不响应，主站设备将按超时处理。</li>
+<li>从站设备接收到正确的报文，但是超过处理范围（例如不存在的功能码或者寄存器等），从站设备将按返回包含异常码（Exception Code）的响应报文。</li>
+</ul>
+<h4 id="异常功能码">异常功能码</h4>
+<p>异常响应报文由从站地址、功能码以及异常码构成。其中，功能码与正常响应报文不同，在异常响应报文中，功能码最高位（即 MSB）被设置为 1。</p>
+<p>因为 Modbus 协议中功能码占用一个字节，因此可以用如下表达式描述正常功能码和异常功能码的关系：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">异常功能码 = 正常功能码 + 0x80
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="异常帧">异常帧</h4>
+<p>与正常报文类似，从设备给主设备回复的异常报文也包含 4 个域：</p>
+<table>
+<thead>
+<tr>
+<th>域</th>
+<th>定义</th>
+<th>大小（RTU 格式）</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>从设备号（地址）</td>
+<td>1 个字节</td>
+<td>从设备的唯一地址，1-247</td>
+</tr>
+<tr>
+<td>2</td>
+<td>异常功能码</td>
+<td>1 个字节</td>
+<td>请求功能码 + 128（0x80）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>异常数据</td>
+<td>n 个字节</td>
+<td>异常码（看下面说明）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>校验和</td>
+<td>2 个字节</td>
+<td>CRC 校验和（ASCII 为 LRC）</td>
+</tr>
+</tbody>
+</table>
+<p>异常数据域通常存放异常码，至于返回什么异常码则依赖于此次通信发生了何种错误。</p>
+<p>下表列出了 Modbus 协议中常见的异常码。</p>
+<table>
+<thead>
+<tr>
+<th>异常码</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 (0x01)</td>
+<td>非法功能码</td>
+<td>从站设备不支持此功能码。</td>
+</tr>
+<tr>
+<td>02 (0x02)</td>
+<td>非法数据地址</td>
+<td>指定的数据地址在从站设备中不存在。</td>
+</tr>
+<tr>
+<td>03 (0x03)</td>
+<td>非法数据值</td>
+<td>指定的数据超过范围或者不允许使用。</td>
+</tr>
+<tr>
+<td>04 (0x04)</td>
+<td>从站设备故障</td>
+<td>从站设备处理响应的过程中，出现未知错误等。</td>
+</tr>
+<tr>
+<td>05 (0x05)</td>
+<td>确认</td>
+<td>从站设备已经接受请求，并且正在处理这个请求，但是需要长持续时间进行这些操作，返回这个响应防止在客户机（或主站）中发生超时错误，客户机（或主机）可以继续发送轮询程序完成报文来确认是否完成处理。</td>
+</tr>
+<tr>
+<td>06 (0x06)</td>
+<td>从站设备忙</td>
+<td>从站设备正在处理长持续时间的程序命令。</td>
+</tr>
+<tr>
+<td>07 (0x07)</td>
+<td>否定确认</td>
+<td>从站设备无法执行主站设备发送的请求。</td>
+</tr>
+<tr>
+<td>08 (0x08)</td>
+<td>存储奇偶性差错</td>
+<td>指示扩展文件区不能通过一致性校验。</td>
+</tr>
+<tr>
+<td>10 (0x0A)</td>
+<td>不可用的网关路径</td>
+<td>与网关一起使用，指示网关不能为处理请求分配输入端口值输出端口的内部通信路径。通常意味着网关是错误配置的或过载的。</td>
+</tr>
+<tr>
+<td>11 (0x0B)</td>
+<td>网关目标设备响应失败</td>
+<td>与网关一起使用，指示没有从目标设备中获得响应，通常意味着设备未在网络中。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="plc寄存器地址分配">PLC寄存器地址分配</h2>
+<table>
+<thead>
+<tr>
+<th>寄存器种类</th>
+<th>寄存器PLC地址</th>
+<th>寄存器Modbus协议地址</th>
+<th>简称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线圈状态</td>
+<td>00001~09999</td>
+<td>0000H~FFFFH</td>
+<td>0x</td>
+</tr>
+<tr>
+<td>离散输入状态</td>
+<td>10001~19999</td>
+<td>0000H~FFFFH</td>
+<td>1x</td>
+</tr>
+<tr>
+<td>保持寄存器</td>
+<td>40001~49999</td>
+<td>0000H~FFFFH</td>
+<td>4x</td>
+</tr>
+<tr>
+<td>输入寄存器</td>
+<td>30001~39999</td>
+<td>0000H~FFFFH</td>
+<td>3x</td>
+</tr>
+</tbody>
+</table>
+<h2 id="专业术语">专业术语</h2>
+<p>在 Modbus 开发中的常见专业术语如下：</p>
+<ul>
+<li>Master /Client ：主（站）设备/客户端</li>
+<li>Slave /Server：从（站）设备/服务器端</li>
+<li>ADU ：应用数据单元（Application Data Unit）</li>
+<li>PDU ：协议数据单元（Protocol Data Unit）</li>
+<li>MSB ：最高有效位（Most Significant Bit）</li>
+<li>LSB ：最低有效位（Least Significant Bit）</li>
+<li>MBAP ：Modbus 应用协议（Modbus Application Protocol）</li>
+<li>PLC ：可编程逻辑控制器（Programmable Logic Controller）</li>
+<li>RTU ：远程终端单元（Remote Terminal Unit）</li>
+<li>SCADA ：监督控制和数据采集（Supervisory Control And Data Acquisition）</li>
+</ul>
+<h2 id="modbus开发环境">Modbus开发环境</h2>
+<ol>
+<li>mudbus poll</li>
+<li>modbus slave</li>
+<li>VSPD</li>
+</ol>
+<p><a href="https://getiot.tech/zh/modbus/modbus-development-environment" target="_blank" rel="noopener noreffer ">教程地址</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2015-12-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" data-title="基于RS485 RTU通讯的电子设备" data-hashtags=" modbus485-RTU, 仪表, 通讯"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" data-hashtag=" modbus485-RTU"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" data-title="基于RS485 RTU通讯的电子设备"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" data-title="基于RS485 RTU通讯的电子设备"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/" data-title="基于RS485 RTU通讯的电子设备"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/modbus485-RTU/"> modbus485-RTU</a>,&nbsp;<a href="/tags/%E4%BB%AA%E8%A1%A8/"> 仪表</a>,&nbsp;<a href="/tags/%E9%80%9A%E8%AE%AF/"> 通讯</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/Linux%E7%AC%94%E8%AE%B0/" class="prev" rel="prev" title="Linux笔记"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linux笔记</a>
+            <a href="/posts/%E5%90%8D%E8%A8%80%E6%90%9C%E9%9B%86/" class="next" rel="next" title="名言搜集">名言搜集<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">自定义内容</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="aboutme.md" target="_blank">Von</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">ICP 备案信息，仅在中国使用 (支持 HTML 格式)</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4H7XSL6M4"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Q4H7XSL6M4');
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-Q4H7XSL6M4" async></script></body>
+</html>

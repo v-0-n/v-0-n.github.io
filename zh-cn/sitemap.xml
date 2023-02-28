@@ -2,19 +2,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://vong.one/about/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://vong.one/posts/Linux%E7%AC%94%E8%AE%B0/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/posts/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://vong.one/en/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://vong.one/"
-                    /></url><url>
-            <loc>https://vong.one/categories/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://vong.one/tags/%E5%90%8D%E4%BA%BA%E5%90%8D%E8%A8%80/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/tags/%E5%93%B2%E5%AD%A6/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/tags/%E7%BD%97%E6%9B%BC%E7%BD%97%E5%85%B0/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/categories/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://vong.one/en/categories/"
@@ -23,13 +14,8 @@
                     hreflang="zh-cn"
                     href="https://vong.one/categories/"
                     /></url><url>
-            <loc>https://vong.one/tags/hugo/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/categories/hugo/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/tags/latex/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/tags/markdown/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/categories/markdown/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://vong.one/tags/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://vong.one/posts/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://vong.one/tags/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://vong.one/en/tags/"
@@ -37,4 +23,30 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://vong.one/tags/"
-                    /></url></urlset>
+                    /></url><url>
+            <loc>https://vong.one/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://vong.one/en/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://vong.one/"
+                    /></url><url>
+            <loc>https://vong.one/posts/%E5%90%8D%E8%A8%80%E6%90%9C%E9%9B%86/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/categories/%E5%93%B2%E5%AD%A6/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/categories/%E6%96%87%E5%AD%A6/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/tags/modbus485-RTU/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/categories/RS485-RTU/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/tags/%E4%BB%AA%E8%A1%A8/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/tags/%E9%80%9A%E8%AE%AF/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/categories/%E9%80%9A%E8%AE%AF/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/posts/%E5%9F%BA%E4%BA%8ERS485-RTU%E9%80%9A%E8%AE%AF%E7%9A%84%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/about/</loc><lastmod>2015-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://vong.one/posts/Linux%E7%AC%94%E8%AE%B0/</loc><lastmod>2023-02-14T23:32:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://vong.one/tags/hugo/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://vong.one/categories/hugo/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://vong.one/posts/hugo%E6%96%87%E7%AB%A0%E7%A4%BA%E4%BE%8B/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://vong.one/tags/latex/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://vong.one/tags/markdown/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://vong.one/categories/markdown/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url></urlset>
