@@ -4,9 +4,25 @@
         <link>https://vong.one/</link>
         <description>用于 RSS, SEO, Open Graph 和 Twitter Cards</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fgq827673334@outlook.com (Von)</managingEditor>
-            <webMaster>fgq827673334@outlook.com (Von)</webMaster><copyright>language下的copyright</copyright><lastBuildDate>Tue, 21 Feb 2023 23:24:25 &#43;0800</lastBuildDate>
+            <webMaster>fgq827673334@outlook.com (Von)</webMaster><copyright>language下的copyright</copyright><lastBuildDate>Sun, 28 May 2023 00:31:38 &#43;0800</lastBuildDate>
             <atom:link href="https://vong.one/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>紫金山记</title>
+    <link>https://vong.one/posts/%E7%B4%AB%E9%87%91%E5%B1%B1%E8%AE%B0/</link>
+    <pubDate>Sun, 28 May 2023 00:31:38 &#43;0800</pubDate>
+    <author>Von</author>
+    <guid>https://vong.one/posts/%E7%B4%AB%E9%87%91%E5%B1%B1%E8%AE%B0/</guid>
+    <description><![CDATA[这是标题]]></description>
+</item>
+<item>
+    <title>Autocad学习方法</title>
+    <link>https://vong.one/posts/Autocad%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</link>
+    <pubDate>Sun, 05 Mar 2023 00:08:48 &#43;0800</pubDate>
+    <author>Von</author>
+    <guid>https://vong.one/posts/Autocad%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</guid>
+    <description><![CDATA[常用命令、功能 快捷键 功能 F1 帮助 F2 命令行开关 F3 对象捕捉开关 F4 三维对象捕捉开关 F5 等轴测平面开关（三维） F6 动态UCS开关（三维） F7 栅格开关 F8 正交开]]></description>
+</item>
+<item>
     <title>名言搜集</title>
     <link>https://vong.one/posts/%E5%90%8D%E8%A8%80%E6%90%9C%E9%9B%86/</link>
     <pubDate>Tue, 21 Feb 2023 23:24:25 &#43;0800</pubDate>
