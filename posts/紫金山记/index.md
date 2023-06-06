@@ -3,5 +3,5 @@
 
 # 这是标题
 
-![IMG_4053](../../public/images/IMG_4053-1686057246891-2.jpg)
+![IMG_4053](../../public/images/IMG_4053.jpg)
 
